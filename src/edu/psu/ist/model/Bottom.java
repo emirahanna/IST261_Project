@@ -14,7 +14,20 @@ public class Bottom extends Clothing {
 
     @Override
     public String careLabel() {
-        return super.careLabel();
+        StringBuilder label = new StringBuilder();
+        label.append(super.careLabel());
+        if (getMaterial().contains("denim") || getType().contains("jeans")){
+            label.append("Wash item in small loads to reduce fabric abrasion.\n")
+                    .append("Stretch the legs to prevent shrinkage.\n")
+                    .append("Hold them by the waistband and legs and gently stretch them vertically before drying.\n")
+                    .append("Dry on low or medium heat.\n")
+                    .append("Overdrying causes unnecessary wear and tear, so take jeans out when the legs are done but the seams and the waistband are slightly damp.");
+        } else if (getMaterial().contains("wool") || getMaterial().contains("cashmere") || getMaterial().contains("silk") ) {
+            label.append("Wash item on gentle setting.\n")
+                    .append("Put items into a mesh laundry bag or zippered pillowcase.\n")
+                    .append("Lay flat to dry. You may need to reshape the item after washing.");
+        }
+        return label.toString();
     }
 
     public String getCutType() {

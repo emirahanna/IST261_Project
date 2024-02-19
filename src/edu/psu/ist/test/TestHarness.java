@@ -1,7 +1,6 @@
 package edu.psu.ist.test;
 
 import edu.psu.ist.model.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -9,8 +8,44 @@ import java.util.Collections;
 public class TestHarness {
 
     public TestHarness() {
-        //tests two model classes, Top and Bottom
-        manualTestPolymorphism();
+        //tests model classes to see if interfaces work
+        manualTestInterface();
+    }
+
+    public void manualTestInterface() {
+        //Create ArrayList of OutfitManager type
+        ArrayList<OutfitManager> interfaceArrayList = new ArrayList<>();
+
+        //instantiate object from implemented classes
+        OutfitManager testCloset = new Closet();
+        OutfitManager testClothing = new Top("H&M", "black", "cotton", "blouse", "round", "short", "loose");
+
+        //populate the closet so rateItem can be implemented successfully
+        Outerwear outerwear = new Outerwear("Aritzia", "white", "polyester", "coat", true, true, "zippers");
+        Headwear headwear = new Headwear("Hegira", "cream", "wool", "beanie", true, true);
+        Footwear footwear = new Footwear("Crocs", "lime green", "rubber", "crocs", 1, true, "everyday");
+        Collections.addAll(Closet.getClosetArrayList(), outerwear, headwear, footwear);
+
+        //add instantiated objects into ArrayList
+        Collections.addAll(interfaceArrayList, testCloset, testClothing);
+
+        //Call overridden method to demonstrate how the implementing classes act differently with the same method call due to polymorphism.
+        for (OutfitManager o :
+                interfaceArrayList) {
+            System.out.println("-----------------------------------------------");
+            System.out.println();
+            System.out.println("Testing the getRating() and rateItem() method.");
+            System.out.println();
+            o.rateItem(4);
+            System.out.println(o.getRating());
+            System.out.println();
+            System.out.println("Testing the getDetailedDescription() method.");
+            System.out.println();
+            System.out.println(o.getDetailedDescription());
+
+        }
+
+
     }
 
     public void manualTestPolymorphism() {
@@ -19,7 +54,7 @@ public class TestHarness {
 
         //instantiate object from subclasses
         Top top = new Top("H&M", "black", "cotton", "blouse", "round", "short", "loose");
-        Bottom bottom = new Bottom("LEVI", "navy", "cotton", "sweatpants", "straight", true, "tapered");
+        Bottom bottom = new Bottom("LEVI", "navy", "denim", "jeans", "straight", false, "tapered");
         Outerwear outerwear = new Outerwear("Aritzia", "white", "polyester", "coat", true, true, "zippers");
         Headwear headwear = new Headwear("Hegira", "cream", "wool", "beanie", true, true);
         Footwear footwear = new Footwear("Crocs", "lime green", "rubber", "crocs", 1, true, "everyday");
@@ -28,9 +63,9 @@ public class TestHarness {
         //add instantiated objects into ArrayList
         Collections.addAll(clothingArrayList, top, bottom, outerwear, headwear, footwear, accessories);
 
-        //Call overridden method careLabel()
-        for (Clothing c:
-             clothingArrayList) {
+        //Call overridden method careLabel() for all the subclasses in the ArrayList
+        for (Clothing c :
+                clothingArrayList) {
             System.out.println("Care label for a/an " + c.getClass().getSimpleName());
             System.out.println(c.careLabel());
             System.out.println();

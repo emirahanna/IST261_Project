@@ -19,14 +19,16 @@ public class Outerwear extends Clothing {
         StringBuilder label = new StringBuilder();
         //make additions based on the fields exclusive to this class
         if (!isWaterproof ){
-            return label.append(super.careLabel()).toString();
+            return label.append(super.careLabel())
+                    .append("Tumble dry on low with a few clean, dry towels to soak extra moisture and speed up drying.\n").toString();
         }
 
-        label.append("Turn clothing inside out.\n");
-        label.append("Fasten any zips or buttons or ties, if any.\n");
-        label.append("If using top-load washing machine, wrap a towel over the agitator and secure with rubber bands.\n");
-        label.append("Wash in cold water and use a delicate cycle.");
-        label.append("Preferably, hand wash these garments.");
+        //Adds these care labels for waterproof clothing
+        label.append("Turn clothing inside out.\n")
+                .append("Fasten any zips or buttons or ties, if any.\n")
+                .append("If using top-load washing machine, wrap a towel over the agitator and secure with rubber bands.\n")
+                .append("Wash in cold water and use a delicate cycle.\n")
+                .append("Preferably, hand wash these garments.");
 
         return label.toString();
     }

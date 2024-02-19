@@ -13,7 +13,21 @@ public class Accessory extends Clothing {
 
     @Override
     public String careLabel() {
-        return super.careLabel();
+        StringBuilder label = new StringBuilder();
+        //checks if the accessory is jewelery
+        if (getType().equalsIgnoreCase("earrings") || getType().equalsIgnoreCase("necklace")
+                || getType().equalsIgnoreCase("ring") || getType().equalsIgnoreCase("bracelet")) {
+            label.append("Wash your accessories using baby shampoo.\n")
+                    .append("Gently brush off the dirt by using a soft-bristled toothbrush.\n")
+                    .append("Rinse it with cold water.\n")
+                    .append("Use a microfiber cloth when drying them.");
+        } else{
+            label.append("Wash on gentle in cold water.\n")
+                    .append("Spot-treat any stained areas.\n")
+                    .append("Use all-purpose detergent.\n")
+                    .append("Air dry to maintain the item's shape.");
+        }
+        return label.toString();
     }
 
     public String getShape() {

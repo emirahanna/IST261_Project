@@ -18,7 +18,24 @@ public class Footwear extends Clothing{
 
     @Override
     public String careLabel() {
-        return super.careLabel();
+        StringBuilder label = new StringBuilder();
+        if(getMaterial().equalsIgnoreCase("canvas") || getMaterial().equalsIgnoreCase("leather")){
+            label.append("Wash in cold water with all-purpose detergent.\n")
+                    .append("Place them in mesh bags to keep laces from wrapping around the agitator.\n")
+                    .append("Dry on low for 10 minutes, then air-dry for a day.");
+        } else if (isWaterproof || getMaterial().equalsIgnoreCase("rubber") || getMaterial().equalsIgnoreCase("pvc") ) {
+            label.append("Brush of any dirt or mud.\n")
+                    .append("Wash with gentle non-detergent soap, and warm water.\n")
+                    .append("Make sure to brush the crevices and rinse the sop thoroughly.\n")
+                    .append("Let them air-dry in a cool, ventilated area.\n")
+                    .append("Avoid using direct heat, such as a hair or clothes dryer, as this can cause the material to shrink or weaken.");
+        }
+        else{
+            label.append("Wipe any dust or stains with a clean cloth.\n")
+                    .append("Place them in a closed mesh bag with the laces and insoles removed.\n")
+                    .append("Wash your shoes in a gentle, cold water cycle with a slow or no-spin setting.");
+        }
+        return label.toString();
     }
 
     public int getShoeHeight() {

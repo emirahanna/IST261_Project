@@ -12,7 +12,12 @@ public class Headwear extends Clothing {
 
     @Override
     public String careLabel() {
-        return super.careLabel();
+        StringBuilder label = new StringBuilder();
+        label.append("Wash on gentle in cold water.\n")
+                .append("Spot-treat any stained areas.\n")
+                .append("Use all-purpose detergent.\n")
+                .append("Air dry to maintain the item's shape.");
+        return label.toString();
     }
 
     public boolean hasWinterProtection() {

@@ -21,7 +21,17 @@ public class Top extends Clothing {
 
     @Override
     public String careLabel() {
-        return super.careLabel();
+        StringBuilder label = new StringBuilder();
+        label.append(super.careLabel());
+        if (getMaterial().contains("cotton")){
+            label.append("Wash item on gentle setting.\n")
+                    .append("Dry items on low for 5 to 10 minutes before laying them flat on a mesh sweater rack or a towel.");
+        } else if (getMaterial().contains("wool") || getMaterial().contains("cashmere") || getMaterial().contains("silk") ) {
+            label.append("Wash item on gentle setting.\n")
+                    .append("Put items into a mesh laundry bag or zippered pillowcase.\n")
+                    .append("Lay flat to dry. You may need to reshape the item after washing.");
+        }
+        return label.toString();
     }
 
     public String getNeckline() {
