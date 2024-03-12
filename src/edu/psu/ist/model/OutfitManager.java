@@ -10,9 +10,13 @@ public interface OutfitManager {
     public abstract String getRating();
 
     /*
+    rethink a method
     Ideas that didn't make the cut
         public abstract boolean isAvailable();
         public abstract int checkInventory();
         public abstract Object giveClothingRecommendation(String type);
+
+
+
      */
 }

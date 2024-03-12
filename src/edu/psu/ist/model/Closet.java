@@ -5,8 +5,14 @@ import java.util.HashMap;
 
 
 public class Closet implements OutfitManager {
-    private static ArrayList<Clothing> closetArrayList = new ArrayList<>();
+    private static ArrayList<Clothing> closetArrayList;
     private int rating;
+    private String name;
+
+    public Closet(String name){
+        this.name = name;
+        closetArrayList = new ArrayList<>();
+    }
 
     @Override
     public void rateItem(int rating) {//a way to mass rate the clothes
@@ -62,11 +68,8 @@ public class Closet implements OutfitManager {
         return closetArrayList;
     }
 
-    /**
-     * @return
-     */
     @Override
     public String toString() {
-        return this.getClass().getSimpleName();
+        return "The " + this.name + " " + this.getClass().getSimpleName();
     }
 }

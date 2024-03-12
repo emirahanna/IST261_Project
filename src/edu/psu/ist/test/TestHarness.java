@@ -17,7 +17,7 @@ public class TestHarness {
         ArrayList<OutfitManager> interfaceArrayList = new ArrayList<>();
 
         //instantiate object from implemented classes
-        OutfitManager testCloset = new Closet();
+        OutfitManager testCloset = new Closet("testCloset");
         OutfitManager testClothing = new Top("H&M", "black", "cotton", "blouse", "round", "short", "loose");
 
         //populate the closet so rateItem can be implemented successfully
@@ -34,12 +34,12 @@ public class TestHarness {
                 interfaceArrayList) {
             System.out.println("-----------------------------------------------");
             System.out.println();
-            System.out.println("Testing the getRating() and rateItem() method.");
+            System.out.println("Testing the getRating() and rateItem() method -->");
             System.out.println();
             o.rateItem(4);
             System.out.println(o.getRating());
             System.out.println();
-            System.out.println("Testing the getDetailedDescription() method.");
+            System.out.println("Testing the getDetailedDescription() method -->");
             System.out.println();
             System.out.println(o.getDetailedDescription());
 
